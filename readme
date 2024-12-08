@@ -1,0 +1,94 @@
+# E-Note Application
+
+## Overview
+
+E-Note is a full-stack note-taking application with a modern frontend and robust backend. This project demonstrates the integration of various technologies to create a seamless and efficient note management system.
+
+## Technologies Used
+
+### Frontend
+
+- Next.js
+- TypeScript
+- shadcn UI library
+- Modular component architecture
+
+### Backend
+
+- Node.js
+- Express.js
+- PostgreSQL
+- Sequelize ORM
+
+### Deployment
+
+- Frontend: Vercel
+- Backend & Database: Railway
+
+## Features
+
+- Create, read, update, and delete notes
+- Archive and unarchive notes
+- View active and archived notes separately
+- Responsive and user-friendly interface
+
+## Project Structure
+
+### Frontend Components
+
+- Note Display
+- Note List
+- New Note Dialog
+- View Note Dialog
+
+### API Routes
+
+```javascript
+export const LOCAL_HOST = "https://e-note-be-production.up.railway.app";
+
+export const GET_NOTE_BY_ID = (id) => `${LOCAL_HOST}/api/notes/${id}`;
+export const GET_ALL_NOTES = `${LOCAL_HOST}/api/notes/`;
+export const ADD_NOTE = `${LOCAL_HOST}/api/notes`;
+export const UPDATE_NOTE = (id) => `${LOCAL_HOST}/api/notes/${id}`;
+export const DELETE_NOTE = (id) => `${LOCAL_HOST}/api/notes/${id}`;
+export const GET_ACTIVE_NOTES = `${LOCAL_HOST}/api/notes/active`;
+export const GET_ARCHIVED_NOTES = `${LOCAL_HOST}/api/notes/archived`;
+export const ARCHIVE_NOTE = (id) => `${LOCAL_HOST}/api/notes/${id}/archive`;
+export const UNARCHIVE_NOTE = (id) => `${LOCAL_HOST}/api/notes/${id}/unarchive`;
+```
+
+### Backend Routes
+
+```javascript
+router.get("/:id", noteController.getNoteById.bind(noteController));
+router.get("/", noteController.getAllNotes.bind(noteController));
+router.get("/active", noteController.getActiveNotes.bind(noteController));
+router.get("/archived", noteController.getArchivedNotes.bind(noteController));
+router.post("/", noteController.createNote.bind(noteController));
+router.put("/:id", noteController.updateNote.bind(noteController));
+router.delete("/:id", noteController.deleteNote.bind(noteController));
+router.patch("/:id/archive", noteController.archiveNote.bind(noteController));
+router.patch(
+  "/:id/unarchive",
+  noteController.unarchiveNote.bind(noteController)
+);
+```
+
+## Setup and Installation
+
+1. Clone the repository
+2. Install dependencies for both frontend and backend
+3. Set up PostgreSQL database
+4. Configure environment variables
+5. Run the development servers
+
+## Deployment
+
+- Frontend: Deployed on Vercel (URL: [https://note-app-plum-theta.vercel.app/](https://note-app-plum-theta.vercel.app/))
+- Backend & Database: Deployed on Railway (Endpoint: [https://e-note-be-production.up.railway.app](https://e-note-be-production.up.railway.app))
+
+## License
+
+This project is licensed under the MIT License - see the `LICENSE.md` file for details.
+
+Developed by [Ifham Mohammed](https://github.com/ifhammohamed)
