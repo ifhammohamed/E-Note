@@ -47,7 +47,7 @@ class NotesController {
           : [["updatedAt", "ASC"]];
 
       if (title) {
-        where.title = { [Op.like]: `%${title}%` };
+        where.title = { [Op.iLike]: `%${title}%` };
       }
 
       if (archived !== undefined) {
